@@ -4,35 +4,35 @@ const team =[
     {
         Name: "Wayne Barnett",
         Role: "Founder & CEO",
-        Image: "wayne-barnett-founder-ceo.jpg",
+        Image: "./assets/img/wayne-barnett-founder-ceo.jpg",
     },
     {
         Name: "Angela",
         Role: "Chief Editor",
-        Image: "angela-caroll-chief-editor.jpg",
+        Image: "./assets/img/angela-caroll-chief-editor.jpg",
     },
     {
         Name: "Waleter gordon",
         Role: "Chief Editor",
-        Image: "walter-gordon-office-manager.jpg",
+        Image: "./assets/img/walter-gordon-office-manager.jpg",
     },
     {
         Name: "Angela lopez",
         Role: "Social Media Manager",
-        Image: "angela-lopez-social-media-manager.jpg",
+        Image: "./assets/img/angela-lopez-social-media-manager.jpg",
     },
     {
         Name: "Scott Estrada",
         Role: "Developer",
-        Image: "scott-estrada-developer.jpg",
+        Image: "./assets/img/scott-estrada-developer.jpg",
     },
     {
         Name: "Barbara Ramos",
         Role: "Grafic designer",
-        Image: "barbara-ramos-graphic-designer.jpg",
+        Image: "./assets/img/barbara-ramos-graphic-designer.jpg",
     },
 ]
-
+let card =document.querySelector(".row")
 //MILESTONE 1: Stampare su console le informazioni di nome, ruolo e la stringa della foto
 for (let i = 0; i < team.length; i++) {
     const componentTeam = team[i];
@@ -41,19 +41,24 @@ for (let i = 0; i < team.length; i++) {
     console.log(componentTeam.Role);
     console.log(componentTeam.Image);
     //creo un elemento della dom h
-    let componentName = document.createElement("h4")
+    let cards = document.createElement("div")
+    cards.classList.add("col", "text-center")
+    let componentName = document.createElement("h2")
     let componentRole = document.createElement("p")
-    let componentImage = document.createElement("P")
+    componentRole.classList.add("fs-4")
+    let componentImage = document.createElement("img")
+    componentImage.src = componentTeam.Image
     //appendo i dati dei componenti del team
+    card.append(cards)
     componentName.append(componentTeam.Name)
     componentRole.append(componentTeam.Role)
     componentImage.append(componentTeam.Image)
     //seleziono dalla dom la card
-    let card =document.querySelector(".carta")
+    
     //appendo il nome alla car
-    card.append(componentName)
-    card.append(componentRole)
-    card.append(componentImage)
+    cards.append(componentImage)
+    cards.append(componentName)
+    cards.append(componentRole)
 }
 
 
